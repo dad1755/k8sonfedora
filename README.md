@@ -28,8 +28,11 @@ step 2: ansible-playbook -i hosts.ini step2-k8s.yml
 
 #### >>ssh to control-panel
 run as root in terminal
+
 step 1: kubeadm reset
+
 step 2: kubeadm init
+
 step 3: export KUBECONFIG=/etc/kubernetes/admin.conf
 step 4: copy the joincommand
 step 5: kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
