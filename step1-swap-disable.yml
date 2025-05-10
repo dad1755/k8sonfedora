@@ -1,0 +1,18 @@
+---
+- name: Run disable swap script on worker nodes
+  hosts: workers
+  become: yes
+  tasks:
+    - name: Copy disable swap script
+      copy:
+        src: disable-swap.sh
+        dest: /tmp/disable-swap.sh
+        mode: '0755'
+
+    - name: Ensure script is executable
+      file:
+        path: /tmp/disable-swap.sh
+        mode: '0755'
+
+    - name: Execute disable swap script
+      command: /bin/bash /tmp/disable-swap.sh
